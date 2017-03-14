@@ -1,6 +1,6 @@
 {
   "name": "react-async-branch",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "a component that will asynchronously load, one of two components based on a condition",
   "main": "dist/index.js",
   "scripts": {

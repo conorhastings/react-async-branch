@@ -17,7 +17,7 @@ export default class AsyncBranch extends React.Component {
  } 
 
  componentWillReceiveProps(nextProps) {
-  if (nextProps.condition !== this.props.condition) {
+  if ((nextProps.condition !== this.props.condition) || (nextProps.left !== this.props.left) || (nextProps.right !== this.props.right)) {
    this.loadComponent(nextProps);
   }
  }

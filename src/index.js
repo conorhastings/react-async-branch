@@ -6,20 +6,24 @@ export default class AsyncBranch extends React.Component {
     this.state = { Component: props.loadingComponent || (() => null) };
   }
 
- loadComponent = props => (
-  (props.condition ? props.left : props.right)().then(file => (
-    this.setState({ Component: file.default || file })
-  ))
- );
+  loadComponent = props => (
+    (props.condition ? props.left : props.right)().then(file => (
+      this.setState({ Component: file.default || file })
+    ))
+  );
 
  componentDidMount() {
   this.loadComponent(this.props);
  } 
 
  componentWillReceiveProps(nextProps) {
-  if ((nextProps.condition !== this.props.condition) || (nextProps.left !== this.props.left) || (nextProps.right !== this.props.right)) {
-   this.loadComponent(nextProps);
-  }
+  if (
+    nextProps.condition !== this.props.condition || 
+    (nextProps.condition && nextProps.left !== this.props.left) ||
+    (!nextProps.condition && nextProps.right !== this.props.right) {
+      this.loadComponent(nextProps);
+    }
+  )
  }
 
  render() {

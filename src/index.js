@@ -20,10 +20,10 @@ export default class AsyncBranch extends React.Component {
   if (
     nextProps.condition !== this.props.condition || 
     (nextProps.condition && nextProps.left !== this.props.left) ||
-    (!nextProps.condition && nextProps.right !== this.props.right) {
+    (!nextProps.condition && nextProps.right !== this.props.right)
+  ) {
       this.loadComponent(nextProps);
     }
-  )
  }
 
  render() {
